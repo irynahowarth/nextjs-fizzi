@@ -8,6 +8,7 @@ import { Center, Environment, View } from "@react-three/drei";
 import { useState } from "react";
 import { ArrowIcon } from "./ArrowIcon";
 import clsx from "clsx";
+import { WavyCircles } from "./WavyCircles";
 
 
 const FLAVORS: {
@@ -51,6 +52,9 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
       className="carousel relative grid h-screen grid-rows-[autom 4fr, auto] justify-center overflow-hidden bg-white py-12 text-white"
     >
       <div className="background pointer-events-none absolute inset-0 bg-[#710523] opacity-50 " />
+
+      <WavyCircles  className="absolute left-1/2 top-1/2 h-[120vmin] -translate-x-1/2 -translate-y-1/2 text-[#710523]"/>
+
       <h2 className="relative text-center text-5xl font-bold">
         <PrismicText field={slice.primary.heading} />
       </h2>
