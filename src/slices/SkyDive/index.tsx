@@ -22,10 +22,14 @@ const SkyDive = ({ slice }: SkyDiveProps): JSX.Element => {
     >
      <h2 className="sr-only">{slice.primary.sentence}</h2>
      <View className="h-screen w-screen">
-      <Scene/>
+      <Scene 
+        sentence={slice.primary.sentence}
+        flavor={slice.primary.flavor}
+      />
      </View>
     </Bounded>
   );
 };
+
 
 export default SkyDive;
