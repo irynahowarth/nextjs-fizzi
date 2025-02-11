@@ -5,6 +5,8 @@ import { PrismicRichText, PrismicText, SliceComponentProps } from "@prismicio/re
 import { View } from "@react-three/drei";
 import { div } from "three/tsl";
 import Scene from "./Scene";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import clsx from "clsx";
 
 /**
  * Props for `AlternatingText`.
@@ -16,6 +18,8 @@ export type AlternatingTextProps =
  * Component for "AlternatingText" Slices.
  */
 const AlternatingText = ({ slice }: AlternatingTextProps): JSX.Element => {
+
+
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -23,7 +27,7 @@ const AlternatingText = ({ slice }: AlternatingTextProps): JSX.Element => {
       className="alternating-text-container relative text-sky-950 bg-yellow-300"
     >
       <div>
-        <div className="grid relative">
+        <div className="grid relative z-[100]">
           <View className="alternating-text-view absolute left-0 top-0 h-screen w-full">
             <Scene />
           </View>
@@ -32,7 +36,11 @@ const AlternatingText = ({ slice }: AlternatingTextProps): JSX.Element => {
             <div key={asText(item.heading)} 
 
             className="alternating-section grid h-screen place-items-center gap-x-12 md:grid-cols-2 ">
-              <div className={index%2 === 0 ? 'col-start-1' : 'md:col-start-2' }>
+              <div 
+                className={clsx(
+                  index%2 === 0 ? 'col-start-1' : 'md:col-start-2',
+                  "rounded-lg p-4 backdrop-blur-lg max-md:bg-white/20"
+                  ) }>
                 <h2 className="text-balance text-6xl font-bold">
                   <PrismicText field={item.heading} />
                 </h2>
